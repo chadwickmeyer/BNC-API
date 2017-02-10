@@ -89,6 +89,7 @@ app.post('/nominations', async (req, res) => {
       'Nominator Name': body.nominatorName,
       'Nominator Email': body.nominatorEmail,
       'Nominator Phone': body.nominatorPhone,
+      'Nominator Personal': body.nominatorPersonal,
       Name: body.nomineeName,
       Email: body.nomineeEmail,
       Phone: body.nomineePhone,

@@ -131,7 +131,7 @@ class BNCAirtable {
       personFieldsToUpdate['Political Party'] = politicalParty
     }
     if (isEmpty(person.get('Profile')) && profile) {
-      personFieldsToUpdate['Profile'] = profile
+      personFieldsToUpdate.Profile = profile
     }
     if (isEmpty(person.get('Other Links')) && otherLinks) {
       personFieldsToUpdate['Other Links'] = otherLinks
@@ -314,6 +314,7 @@ class BNCAirtable {
       nominatorName: formatText(rawNomination['Nominator Name']),
       nominatorEmails,
       nominatorPhones,
+      nominatorPersonal: rawNomination['Nominator Personal'],
       name: formatText(rawNomination.Name),
       emails,
       phones,
