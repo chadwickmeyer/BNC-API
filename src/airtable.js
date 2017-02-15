@@ -314,7 +314,8 @@ class BNCAirtable {
       nominatorName: formatText(rawNomination['Nominator Name']),
       nominatorEmails,
       nominatorPhones,
-      nominatorPersonal: rawNomination['Nominator Personal'],
+      /* TODO: make ths a formatBoolean like the other formatters.js methods */
+      nominatorPersonal: !!(rawNomination['Nominator Personal']),
       name: formatText(rawNomination.Name),
       emails,
       phones,
@@ -330,6 +331,7 @@ class BNCAirtable {
       sourceTeamName: formatSourceTeamName(rawNomination['Source Team Name']),
       submitterEmails: [formatEmail(rawNomination['Submitter Email']) || formatEmail(rawNomination['Nominator Email'])]
     }
+    console.log('personal:', cleanedNomination.nominatorPersonal, typeof cleanedNomination.nominatorPersonal)
     progressFunc(10)
     const state = await this.findOne('States', `{Abbreviation} = "${this.escapeString(cleanedNomination.stateAbbreviation)}"`)
     progressFunc(20)
